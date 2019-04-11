@@ -1,0 +1,59 @@
+防卫声明 guard
+#ifndef testDataTypes
+#define testDataTypes
+…
+…
+#endif
+
+
+相同class的各个objects互为friends友元
+Const 用于某个函数不改动变量的值int re( ) const { return x ; }
+& 引用传参是重点 (结构体,对象)
+	类型 &引用名=目标变量名；
+	Int &a=b;
+
+来自 <https://www.cnblogs.com/duwenxing/p/7421100.html> 
+
+
+操作符重载
+所有的成员函数都具有隐藏的参数 this
+this即调用成员函数的对象
+<<操作符重载
+Ostream&
+Operator << (ostream& os,const complex& x)
+{
+	return os <<'('<<real (x) << ' , '<< imag ( x )<< ' , ' ;
+}
+{
+	cout << c1 ;  
+}
+
+Inline complex&
+Complex::operator += (const complex& r)
+{
+	return _doap1(this,r);
+}
+Inline complex&
+_doap1(complex* ths ,const comlex& r)
+{
+	ths->re +=r.re;
+	ths->im +=r.im;
+	return *ths;
+}
+
+返回值是否可以定为引用对象的依据之一是
+接收返回值的对象是globe or local object
+
+创建临时对象temp object :typename()
+如果返回值是临时对象 return complex () 此函数返回值类型绝对不能为& (reference)
+因为临时对象在函数结束时存储空间已经被撤销
+
+ class complex
+{
+ public: 
+	Complex(double r =0,double i=0)
+	:re (r),im(i)   //初值列
+	{}
+ private:
+ double re,im;
+} ;
